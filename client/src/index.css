@@ -14,19 +14,26 @@ h2 {
     font-family: 'Readex Pro', sans-serif;
 }
 
+/* .pre-primary-title{
+    color:rgb(255, 255, 255) ;
+    font-size: ;
+} */
+
 .primary-title {
     font-size: 90px;
     color: rgb(255, 255, 255);
 }
 
 .primary-button {
-    color: rgb(255,255,255);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
     text-transform: uppercase;
     font-size: 15px;
     background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
     padding: 12px 30px;
     border-radius: 30px;
     border: none;
+    cursor: pointer;
 }
 
 .primary-button:hover {
@@ -43,12 +50,19 @@ h2 {
     border-radius: 30px;
     border: solid 2px rgb(121, 119, 119);
     margin: 6px;
+    cursor: pointer;
 }
 
 .secondary-button:hover {
     color: rgb(48, 48, 48);
     border: solid 2px rgb(48, 48, 48);
 }
+
+.secondary-button:active {
+    background-color: rgb(254, 48, 114);
+    color: white;
+    border: 2px solid;
+  }
 
 
 /*-------- Navbar --------*/
@@ -60,27 +74,57 @@ nav {
 }
 
 nav .nav-button {
-    color: rgb(254, 48, 114);
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(254, 48, 114);
+    color: rgb(0, 0, 0);
     font-size: 20px;
+    font-weight: bold;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
     margin: 10px;
+    cursor: pointer;
+    width: 120px; /* example width */
+    height: 50px;
+}
+
+nav .nav-button:hover{
+    background-color: rgb(0, 0, 0);
+    color:rgb(254, 48, 114) ;
+    transition: ease-in-out 0.2s;
 }
 
 nav .nav-button:disabled {
-    background-color: rgb(181, 180, 180);
+    background-color: rgb(35, 27, 27);
     color: rgb(189, 42, 90);
+    cursor: default;
 }
 
 nav .logo-container {
-    width: 170px;
+    width: 200px;
     margin: 15px;
 }
+/* nav .logo-container .logo{
+    width: 100%;
+    height: 100%;
+} */
 
 nav .logo-container .logo {
     width: 100%;
+}
+
+@media screen and (max-width: 480px){
+
+    nav .logo-container .logo{
+        width: 80%;
+        
+    }
+
+    nav .logo-container{
+        margin-left: 0px;
+    }
+
+
+    
 }
 
 /*-------- Home page --------*/
@@ -92,12 +136,20 @@ nav .logo-container .logo {
             to bottom,
             rgba(0, 0, 0, 0.65) 0%,
             rgba(0, 0, 0, 0) 100%
-    ), url('images/6e9794bcedeecf5a8f8f41338a2a7345.webp')
+    ), url('https://images.unsplash.com/photo-1627630737366-fbd46d8c11f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80');
+    background-size: cover;
 }
 
 .home {
     margin-top: 30vh;
 }
+
+@media screen and (max-width: 480px){
+    .primary-title {
+        font-size:70px ;
+    }
+}
+
 
 /*-------- Auth Modal --------*/
 .auth-modal {
@@ -116,7 +168,15 @@ nav .logo-container .logo {
 
 .auth-modal .close-icon {
     float: right;
+    cursor: pointer;
+    color: black;
 }
+
+.auth-modal .close-icon:hover{
+    transform: scale(1.2);
+    font-weight: bold;
+}
+
 
 .auth-modal form {
     display: flex;
@@ -129,6 +189,14 @@ nav .logo-container .logo {
     margin: 8px;
     font-size: 17px;
 }
+
+@media screen and (max-width: 480px){
+    .auth-modal{
+        width: 300px;
+        height: 500px;
+    }
+}
+
 
 /*-------- OnBoarding Page --------*/
 .onboarding {
@@ -192,20 +260,106 @@ nav .logo-container .logo {
 }
 
 .onboarding form input[type=radio]:checked + label {
-    border: solid 2px rgb(221, 39, 22);
+    /* border: solid 2px rgb(221, 39, 22); */
+    color: black;
+    font-weight: bold;
+    background-color: rgb(254, 48, 114);
+    border: solid 2px black;
 }
+
+.onboarding form input[type=submit]{
+    color: rgb(0, 0, 0);
+    background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+
+
 
 .onboarding form input[type=submit]:hover {
-    background-color: rgb(235, 235, 235);
+    /* background-color: rgb(235, 235, 235); */
+    /* background-color:rgb(254, 48, 114) ;
+    color: black;
+    font-weight: bold;
+    transition: ease-in-out 0.2s; */
+
+    background: linear-gradient(260deg, rgb(254, 48, 114), rgb(255, 89, 64));
+    cursor: pointer;
 }
 
-.onboarding form input[type=submit]:active {
-    background-color: rgb(226, 115, 115);
-}
+/* .onboarding form input[type=submit]:active {
+    background-color: ;
+
+} */
 
 .onboarding form .photo-container img {
-    width: 100%
+    width: 100%;
+    /* height:100% */
+    /* height: 62vh; */
 }
+
+.show-gender label{
+    padding-right: 10px;
+}
+
+.show-gender input:checked{
+    accent-color: rgb(254, 48, 114);
+    
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* Small screens */
+@media screen and (max-width: 480px) {
+    .onboarding form {
+      flex-direction: column;
+    }
+  
+    .onboarding form section {
+      width: 90%;
+      margin-bottom: 20px;
+    }
+  
+    .onboarding form input {
+      padding: 10px 20px;
+      font-size: 12px;
+    }
+  
+    .onboarding form .multiple-input-container {
+      flex-direction: column;
+    }
+  
+    .onboarding form .multiple-input-container input {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .onboarding form .multiple-input-container label {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .onboarding form input[type=number] {
+      width: 30%;
+    }
+  }
+  
+  /* Large screens */
+  @media screen and (min-width: 481px) {
+    .onboarding form section {
+      width: 35%;
+    }
+  
+    .onboarding form input {
+      padding: 15px 30px;
+      font-size: 15px;
+    }
+  
+    .onboarding form input[type=number] {
+      width: 10%;
+    }
+  }
+/* ------------------------------------------------------------------------------------------ */
 
 /*-------- Dashboard  --------*/
 .dashboard {
@@ -222,13 +376,29 @@ nav .logo-container .logo {
     height: 100vh;
 }
 
+@media screen and (max-width: 768px) {
+    .dashboard .swipe-container {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
 .swipe {
     position: absolute;
+    width: 400px;
 }
 
 .dashboard .card-container {
     width: 400px;
     height: 650px;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard .card-container {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
 }
 
 .card {
@@ -249,12 +419,19 @@ nav .logo-container .logo {
     padding: 10px;
 }
 
+@media screen and (max-width: 768px) {
+    .dashboard .swipe-info {
+        position: relative;
+        text-align: center;
+    }
+}
+
 /*-------- Chat Container --------*/
 .chat-container {
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    width: 30%;
+    width: 40%;
     text-align: left;
     z-index: 1;
 }
@@ -315,6 +492,97 @@ nav .logo-container .logo {
     flex-direction: column;
 }
 
+.chat-message-header1{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 10px;
+}
+.chat-message-header2{
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+}
+
+.chat-message-content1{
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 5px 15px;
+}
+.chat-message-content2{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+.card {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .profile-card {
+    background-color: #fff; /* set background color to white */
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 5%;
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .profile-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-details h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .profile-details p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .profileback{
+    background-image: url('./images/6e9794bcedeecf5a8f8f41338a2a7345.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .card-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  
 
 
 

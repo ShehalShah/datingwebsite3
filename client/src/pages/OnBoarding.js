@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const OnBoarding = () => {
     const [cookies, setCookie, removeCookie] = useCookies(null)
-    const [formData, setFormData] = useState({
+    const [data, setdata] = useState({
         user_id: cookies.UserId,
         first_name: "",
         dob_day: "",
@@ -27,7 +27,7 @@ const OnBoarding = () => {
         console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.put('http://localhost:8000/user', {formData})
+            const response = await axios.put('http://localhost:8000/user', {data})
             console.log(response)
             const success = response.status === 200
             if (success) navigate('/dashboard')
@@ -42,7 +42,7 @@ const OnBoarding = () => {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         const name = e.target.name
 
-        setFormData((prevState) => ({
+        setdata((prevState) => ({
             ...prevState,
             [name]: value
         }))
@@ -69,7 +69,7 @@ const OnBoarding = () => {
                             name="first_name"
                             placeholder="First Name"
                             required={true}
-                            value={formData.first_name}
+                            value={data.first_name}
                             onChange={handleChange}
                         />
 
@@ -81,7 +81,7 @@ const OnBoarding = () => {
                                 name="dob_day"
                                 placeholder="DD"
                                 required={true}
-                                value={formData.dob_day}
+                                value={data.dob_day}
                                 onChange={handleChange}
                             />
 
@@ -91,7 +91,7 @@ const OnBoarding = () => {
                                 name="dob_month"
                                 placeholder="MM"
                                 required={true}
-                                value={formData.dob_month}
+                                value={data.dob_month}
                                 onChange={handleChange}
                             />
 
@@ -101,7 +101,7 @@ const OnBoarding = () => {
                                 name="dob_year"
                                 placeholder="YYYY"
                                 required={true}
-                                value={formData.dob_year}
+                                value={data.dob_year}
                                 onChange={handleChange}
                             />
                         </div>
@@ -114,7 +114,7 @@ const OnBoarding = () => {
                                 name="gender_identity"
                                 value="man"
                                 onChange={handleChange}
-                                checked={formData.gender_identity === "man"}
+                                checked={data.gender_identity === "man"}
                             />
                             <label htmlFor="man-gender-identity">Man</label>
                             <input
@@ -123,7 +123,7 @@ const OnBoarding = () => {
                                 name="gender_identity"
                                 value="woman"
                                 onChange={handleChange}
-                                checked={formData.gender_identity === "woman"}
+                                checked={data.gender_identity === "woman"}
                             />
                             <label htmlFor="woman-gender-identity">Woman</label>
                             <input
@@ -132,11 +132,11 @@ const OnBoarding = () => {
                                 name="gender_identity"
                                 value="more"
                                 onChange={handleChange}
-                                checked={formData.gender_identity === "more"}
+                                checked={data.gender_identity === "more"}
                             />
                             <label htmlFor="more-gender-identity">More</label>
                         </div>
-
+                        <div className='show-gender'>
                         <label htmlFor="show-gender">Show Gender on my Profile</label>
 
                         <input
@@ -144,8 +144,9 @@ const OnBoarding = () => {
                             type="checkbox"
                             name="show_gender"
                             onChange={handleChange}
-                            checked={formData.show_gender}
+                            checked={data.show_gender}
                         />
+                        </div>
 
                         <label>Show Me</label>
 
@@ -156,7 +157,7 @@ const OnBoarding = () => {
                                 name="gender_interest"
                                 value="man"
                                 onChange={handleChange}
-                                checked={formData.gender_interest === "man"}
+                                checked={data.gender_interest === "man"}
                             />
                             <label htmlFor="man-gender-interest">Man</label>
                             <input
@@ -165,7 +166,7 @@ const OnBoarding = () => {
                                 name="gender_interest"
                                 value="woman"
                                 onChange={handleChange}
-                                checked={formData.gender_interest === "woman"}
+                                checked={data.gender_interest === "woman"}
                             />
                             <label htmlFor="woman-gender-interest">Woman</label>
                             <input
@@ -174,7 +175,7 @@ const OnBoarding = () => {
                                 name="gender_interest"
                                 value="everyone"
                                 onChange={handleChange}
-                                checked={formData.gender_interest === "everyone"}
+                                checked={data.gender_interest === "everyone"}
                             />
                             <label htmlFor="everyone-gender-interest">Everyone</label>
 
@@ -187,7 +188,7 @@ const OnBoarding = () => {
                             name="about"
                             required={true}
                             placeholder="I like long walks..."
-                            value={formData.about}
+                            value={data.about}
                             onChange={handleChange}
                         />
 
@@ -205,7 +206,7 @@ const OnBoarding = () => {
                             required={true}
                         />
                         <div className="photo-container">
-                            {formData.url && <img src={formData.url} alt="profile pic preview"/>}
+                            {data.url && <img src={data.url} alt="profile pic preview"/>}
                         </div>
 
 

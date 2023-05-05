@@ -1,6 +1,8 @@
 import { useCookies } from 'react-cookie'
+import { useNavigate } from 'react-router-dom'
 
 const ChatHeader = ({ user }) => {
+    const nav=useNavigate()
     const [ cookies, setCookie, removeCookie ] = useCookies(['user'])
 
     const logout = () => {
@@ -11,11 +13,11 @@ const ChatHeader = ({ user }) => {
 
     return (
         <div className="chat-container-header">
-            <div className="profile">
-                <div className="img-container">
+            <div className="profile" >
+                <div className="img-container" >
                     <img src={user.url} alt={"photo of " + user.first_name}/>
                 </div>
-                <h3>{user.first_name}</h3>
+                <h3 style={{cursor:"pointer"}} onClick={()=>nav(`/profile/${user.user_id}`)}>{user.first_name}</h3>
             </div>
             <i className="log-out-icon" onClick={logout}>⇦</i>
         </div>

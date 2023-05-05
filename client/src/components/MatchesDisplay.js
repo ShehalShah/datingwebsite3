@@ -30,6 +30,7 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
         .length > 0
   );
 
+  // const filteredMatchedProfiles = matchedProfiles
   return (
     <div className="matches-display">
       {filteredMatchedProfiles?.map((match, _index) => (

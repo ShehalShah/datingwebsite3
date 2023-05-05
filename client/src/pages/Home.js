@@ -3,6 +3,7 @@ import AuthModal from "../components/AuthModal"
 import {useState} from 'react'
 import {useCookies} from "react-cookie"
 
+
 const Home = () => {
     const [showModal, setShowModal] = useState(false)
     const [isSignUp, setIsSignUp] = useState(true)
@@ -21,6 +22,7 @@ const Home = () => {
     }
 
     return (
+        
         <div className="overlay">
             <Nav
                 authToken={authToken}
@@ -30,7 +32,8 @@ const Home = () => {
                 setIsSignUp={setIsSignUp}
             />
             <div className="home">
-                <h1 className="primary-title">Swipe Right®</h1>
+                {/* <h4 className='pre-primary-title'>WE SAID YES!</h4> */}
+                <h1 className="primary-title">We're Engaged!®</h1>
                 <button className="primary-button" onClick={handleClick}>
                     {authToken ? 'Signout' : 'Create Account'}
                 </button>
@@ -40,7 +43,9 @@ const Home = () => {
                     <AuthModal setShowModal={setShowModal} isSignUp={isSignUp}/>
                 )}
             </div>
+            
         </div>
+        
     )
 }
 export default Home

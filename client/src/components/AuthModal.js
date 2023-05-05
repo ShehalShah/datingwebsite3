@@ -51,13 +51,13 @@ const AuthModal = ({ setShowModal,  isSignUp }) => {
             <div className="close-icon" onClick={handleClick}>ⓧ</div>
 
             <h2>{isSignUp ? 'CREATE ACCOUNT': 'LOG IN'}</h2>
-            <p>By clicking Log In, you agree to our terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
+            <p>By clicking submit, you agree to our terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="email"
+                    placeholder="Email"
                     required={true}
                     onChange={(e) => setEmail(e.target.value)}
                 />
@@ -65,7 +65,7 @@ const AuthModal = ({ setShowModal,  isSignUp }) => {
                     type="password"
                     id="password"
                     name="password"
-                    placeholder="password"
+                    placeholder="Password"
                     required={true}
                     onChange={(e) => setPassword(e.target.value)}
                 />
@@ -73,16 +73,18 @@ const AuthModal = ({ setShowModal,  isSignUp }) => {
                     type="password"
                     id="password-check"
                     name="password-check"
-                    placeholder="confirm password"
+                    placeholder="Confirm Password"
                     required={true}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />}
                 <input className="secondary-button" type="submit"/>
                 <p>{error}</p>
             </form>
-
+                    <hr/>
+            {/* <div className='center'>
             <hr/>
-            <h2>GET THE APP</h2>
+            {/* <h2>GET THE APP</h2> */}
+            
 
         </div>
     )

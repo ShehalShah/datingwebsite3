@@ -7,7 +7,8 @@ const cors = require('cors')
 const bcrypt = require('bcrypt')
 require('dotenv').config()
 
-const uri = process.env.URI
+// const uri = process.env.URI
+const uri="mongodb+srv://shehalshah:5wdNWpfboJiEeQFk@cluster0.xwckt85.mongodb.net/?retryWrites=true&w=majority"
 
 const app = express()
 app.use(cors())
@@ -151,7 +152,6 @@ app.get('/users', async (req, res) => {
             ]
 
         const foundUsers = await users.aggregate(pipeline).toArray()
-
         res.json(foundUsers)
 
     } finally {
@@ -180,7 +180,7 @@ app.get('/gendered-users', async (req, res) => {
 // Update a User in the Database
 app.put('/user', async (req, res) => {
     const client = new MongoClient(uri)
-    const formData = req.body.formData
+    const formData = req.body.data
 
     try {
         await client.connect()
